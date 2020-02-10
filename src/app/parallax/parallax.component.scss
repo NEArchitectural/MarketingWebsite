@@ -1,0 +1,21 @@
+/* Full height */
+.parallax {
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Disable parallax for IE as it looks crappy and doesn't work properly */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* This is a specific IE media query, so it will only be parsed in IE and only
+      then will the following CSS apply/ Also the validator doesn't recognise it but it is working */
+  .parallax {
+    height: 100%;
+    background-attachment: scroll;
+    background-position: unset;
+  }
+}

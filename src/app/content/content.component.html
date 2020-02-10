@@ -1,0 +1,14 @@
+<app-header></app-header>
+<app-parallax class="parallaxOne"></app-parallax>
+<div class="content">
+  <ul>
+    <li class="text" *ngFor="let location of locations | async">
+      {{ location.name }} <br />
+      {{ location.summary }}
+    </li>
+  </ul>
+</div>
+<app-parallax class="parallaxTwo"></app-parallax>
+<div class="content">Some content</div>
+<app-parallax class="parallaxThree"></app-parallax>
+<div class="content">Some content</div>
