@@ -1,126 +1,128 @@
-<mat-card>
-  <form [formGroup]="form" (submit)="onSaveLocation()">
-    <mat-form-field>
-      <input
-        matInput
-        type="text"
-        formControlName="title"
-        placeholder="Location Title"
-      />
-      <mat-error *ngIf="form.get('title').invalid"
-        >Please enter a valid title.</mat-error
+<div>
+  <mat-card>
+    <form [formGroup]="form" (submit)="onSaveLocation()">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="title"
+          placeholder="Location Title"
+        />
+        <mat-error *ngIf="form.get('title').invalid"
+          >Please enter a valid title.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="type"
+          placeholder="Location Type"
+        />
+        <mat-error *ngIf="form.get('type').invalid"
+          >Please enter a valid location type.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          formControlName="latitude"
+          placeholder="Location Latitude"
+        />
+        <mat-error *ngIf="form.get('latitude').invalid"
+          >Please enter a valid location latitude.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          formControlName="longitude"
+          placeholder="Location Longitude"
+        />
+        <mat-error *ngIf="form.get('longitude').invalid"
+          >Please enter a valid location longitude.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <textarea
+          matInput
+          type="text"
+          formControlName="summary"
+          placeholder="Location summary"
+        ></textarea>
+        <mat-error *ngIf="form.get('summary').invalid"
+          >Please enter a valid summary.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="created"
+          placeholder="Location Date of creation"
+          [matDatepicker]="picker"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker matDatepicker #picker disabled="false"></mat-datepicker>
+        <mat-error *ngIf="form.get('created').invalid"
+          >Please enter a valid creation date.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="thumbnail"
+          placeholder="Thumbnail URL"
+        />
+        <mat-error *ngIf="form.get('thumbnail').invalid"
+          >Please enter a valid thumbnail URL.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-checkbox
+        matCheckbox
+        [(ngModel)]="currentWheelChair"
+        [ngModelOptions]="{ standalone: true }"
       >
-    </mat-form-field>
-    <br />
-    <mat-form-field>
-      <input
-        matInput
-        type="text"
-        formControlName="type"
-        placeholder="Location Type"
-      />
-      <mat-error *ngIf="form.get('type').invalid"
-        >Please enter a valid location type.</mat-error
+        Wheelchair Access
+      </mat-checkbox>
+      <br />
+      <mat-checkbox
+        matCheckbox
+        [(ngModel)]="currentCheap"
+        [ngModelOptions]="{ standalone: true }"
       >
-    </mat-form-field>
-    <br />
-    <mat-form-field>
-      <input
-        matInput
-        type="number"
-        formControlName="latitude"
-        placeholder="Location Latitude"
-      />
-      <mat-error *ngIf="form.get('latitude').invalid"
-        >Please enter a valid location latitude.</mat-error
+        Cheap Entry
+      </mat-checkbox>
+      <br />
+      <mat-checkbox
+        matCheckbox
+        [(ngModel)]="currentFree"
+        [ngModelOptions]="{ standalone: true }"
       >
-    </mat-form-field>
-    <br />
-    <mat-form-field>
-      <input
-        matInput
-        type="number"
-        formControlName="longitude"
-        placeholder="Location Longitude"
-      />
-      <mat-error *ngIf="form.get('longitude').invalid"
-        >Please enter a valid location longitude.</mat-error
+        Free Entry
+      </mat-checkbox>
+      <br />
+      <mat-checkbox
+        matCheckbox
+        [(ngModel)]="currentChild"
+        [ngModelOptions]="{ standalone: true }"
       >
-    </mat-form-field>
-    <br />
-    <mat-form-field>
-      <textarea
-        matInput
-        type="text"
-        formControlName="summary"
-        placeholder="Location summary"
-      ></textarea>
-      <mat-error *ngIf="form.get('summary').invalid"
-        >Please enter a valid summary.</mat-error
-      >
-    </mat-form-field>
-    <br />
-    <mat-form-field>
-      <input
-        matInput
-        formControlName="created"
-        placeholder="Location Date of creation"
-        [matDatepicker]="picker"
-      />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker matDatepicker #picker disabled="false"></mat-datepicker>
-      <mat-error *ngIf="form.get('created').invalid"
-        >Please enter a valid creation date.</mat-error
-      >
-    </mat-form-field>
-    <br />
-    <mat-form-field>
-      <input
-        matInput
-        type="text"
-        formControlName="thumbnail"
-        placeholder="Thumbnail URL"
-      />
-      <mat-error *ngIf="form.get('thumbnail').invalid"
-        >Please enter a valid thumbnail URL.</mat-error
-      >
-    </mat-form-field>
-    <br />
-    <mat-checkbox
-      matCheckbox
-      [(ngModel)]="currentWheelChair"
-      [ngModelOptions]="{ standalone: true }"
-    >
-      WheelChair Access
-    </mat-checkbox>
-    <br />
-    <mat-checkbox
-      matCheckbox
-      [(ngModel)]="currentCheap"
-      [ngModelOptions]="{ standalone: true }"
-    >
-      Cheap Entry
-    </mat-checkbox>
-    <br />
-    <mat-checkbox
-      matCheckbox
-      [(ngModel)]="currentFree"
-      [ngModelOptions]="{ standalone: true }"
-    >
-      Free Entry
-    </mat-checkbox>
-    <br />
-    <mat-checkbox
-      matCheckbox
-      [(ngModel)]="currentChild"
-      [ngModelOptions]="{ standalone: true }"
-    >
-      Child Friendly
-    </mat-checkbox>
-    <br />
+        Child Friendly
+      </mat-checkbox>
+      <br />
 
-    <button mat-raised-button color="accent" type="submit">
-      Save Location
-    </button>
-  </form>
-</mat-card>
+      <button mat-raised-button color="accent" type="submit">
+        Save Location
+      </button>
+    </form>
+  </mat-card>
+</div>
