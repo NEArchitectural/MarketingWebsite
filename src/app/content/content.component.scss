@@ -7,7 +7,25 @@
 .parallaxThree ::ng-deep .parallax {
   background-image: url("https://www.english-heritage.org.uk/siteassets/home/visit/places-to-visit/hadrians-wall/history/hadrians-wall.jpg?w=1440&h=612&mode=crop&scale=both&quality=60&anchor=NoFocus&WebsiteVersion=20200122");
 }
-.content {
+
+.content1 {
   height: 100vh;
-  background-color: #333745;
+  background-color: #eefbfb;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.content2 {
+  height: 100vh;
+  background-color: #eefbfb;
+  text-align: right;
+  padding-left: 5px;
+}
+
+h1 {
+  font-size: 32px;
+  padding-top: 5px;
+}
+p {
+  font-size: 16px;
 }

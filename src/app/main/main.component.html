@@ -1,0 +1,17 @@
+<app-header></app-header>
+<app-parallax class="parallaxOne"></app-parallax>
+<div class="content" *ngFor="let i=index; let location of locations | async">
+  <div *ngIf="i==0">
+    Location name: {{ location.name }} <br />
+    <ul>
+      <li class="text">
+        {{ location.summary }}
+      <!--<img src="{{location.thumbnail}}" />-->
+      </li>
+    </ul>
+  </div>
+</div>
+<app-parallax class="parallaxTwo"></app-parallax>
+<div class="content">Some content</div>
+<app-parallax class="parallaxThree"></app-parallax>
+<div class="content">Some content</div>

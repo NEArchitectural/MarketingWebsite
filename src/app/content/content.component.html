@@ -1,14 +1,56 @@
 <app-header></app-header>
 <app-parallax class="parallaxOne"></app-parallax>
-<div class="content">
-  <ul>
-    <li class="text" *ngFor="let location of locations | async">
-      {{ location.name }} <br />
-      {{ location.summary }}
-    </li>
-  </ul>
+<div class="content1">
+    <!-- Page header -->
+    <h1>Welcome to Northumberland</h1>
+    <!-- Short introduction about the app -->
+    <p>We have developed an Android app to aid tourists and architectural enthusiasts easily find places to visit in the Northumbria area.
+    The app shows the location of buildings in relation to the users location and allows the ability to learn about these buildings in the 
+    app aswell as get directions to them.</p>
+    <!-- Images of home & map screen -->
+    <img src="images/Example1.png" alt="Example image 1"  title="Example image 1"/>
 </div>
+
 <app-parallax class="parallaxTwo"></app-parallax>
-<div class="content">Some content</div>
+<div class="content2"> 
+  <!-- Information about the app -->
+  <h2>The Map</h2>
+  <p>The map screen is the main page of the app and is similar to any other map application allowing it to feel familiar and simple to use.
+  You can tap on a pin to view the name of it, a brief summary and an image of the location, furthermore you can get directions to the 
+  location (this will open google maps externally).</p>
+  <!-- Images of map screen -->
+  <img src="images/Example2.png" alt="Example image 2"  title="Example image 2"/>
+</div>
+
 <app-parallax class="parallaxThree"></app-parallax>
-<div class="content">Some content</div>
+<div class="content1">
+  <!-- Information about the search -->
+  <h2>Searching for a Location</h2>
+  <p>The intuitive search screen allows for a user to easily view information about nearby locations and the ditance to them. If the user 
+  only wants to view locations up to a certain distance from them then they can use the slider at the top to be able to do this. The checkboxes 
+  at the top allow for further refinement of the search, such as only showing places that are child or wheelchair friendly. Finally the search 
+  bar allows a user to search for a place or by location type (castle, theatre, etc).</p>
+  <!-- Images of search screen -->
+  <img src="images/Example3.png" alt="Example image 3"  title="Example image 3"/>
+  <img src="images/Example4.png" alt="Example image 4"  title="Example image 4"/>
+</div>
+
+<app-parallax class="parallaxFour"></app-parallax>
+<div class="content2">
+  <!-- Information about the timeline -->
+  <h2>Location Timeline</h2>
+  <p>The timeline screen allows easy viewing of locations by date, allowing a user to see which are the oldest or most recent and depending 
+  on what you want to view it is easy to change what is shown with the 2 dropdown menus at the top</p>
+  <!-- Images of timeline screen -->
+  <img src="images/Example5.png" alt="Example image 5"  title="Example image 5"/>
+</div>
+
+<app-parallax class="parallaxFive"></app-parallax>
+<div class="content1">
+  <!-- Information about settings -->
+  <h2>Settings</h2>
+  <p>By storing users preferences in a settings file, we allow for consistent use of the app each time it is opened and for ease of use using 
+  features such as editing the font size, colour or text to speech.</p>
+  <!-- Images of settings screen -->
+  <img src="images/Example6.png" alt="Example image 6"  title="Example image 6"/>
+</div>
