@@ -8,7 +8,8 @@
           formControlName="title"
           placeholder="Location Title"
         />
-        <mat-error *ngIf="form.get('title').invalid"
+        <mat-error
+          *ngIf="form.get('title').invalid || form.hasError('whitespace')"
           >Please enter a valid title.</mat-error
         >
       </mat-form-field>
@@ -20,7 +21,8 @@
           formControlName="type"
           placeholder="Location Type"
         />
-        <mat-error *ngIf="form.get('type').invalid"
+        <mat-error
+          *ngIf="form.get('type').invalid || form.hasError('whitespace')"
           >Please enter a valid location type.</mat-error
         >
       </mat-form-field>
@@ -32,7 +34,8 @@
           formControlName="latitude"
           placeholder="Location Latitude"
         />
-        <mat-error *ngIf="form.get('latitude').invalid"
+        <mat-error
+          *ngIf="form.get('latitude').invalid || form.hasError('whitespace')"
           >Please enter a valid location latitude.</mat-error
         >
       </mat-form-field>
@@ -44,7 +47,8 @@
           formControlName="longitude"
           placeholder="Location Longitude"
         />
-        <mat-error *ngIf="form.get('longitude').invalid"
+        <mat-error
+          *ngIf="form.get('longitude').invalid || form.hasError('whitespace')"
           >Please enter a valid location longitude.</mat-error
         >
       </mat-form-field>
@@ -56,7 +60,8 @@
           formControlName="summary"
           placeholder="Location summary"
         ></textarea>
-        <mat-error *ngIf="form.get('summary').invalid"
+        <mat-error
+          *ngIf="form.get('summary').invalid || form.hasError('whitespace')"
           >Please enter a valid summary.</mat-error
         >
       </mat-form-field>
@@ -70,7 +75,8 @@
         />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker matDatepicker #picker disabled="false"></mat-datepicker>
-        <mat-error *ngIf="form.get('created').invalid"
+        <mat-error
+          *ngIf="form.get('created').invalid || form.hasError('whitespace')"
           >Please enter a valid creation date.</mat-error
         >
       </mat-form-field>
@@ -82,9 +88,72 @@
           formControlName="thumbnail"
           placeholder="Thumbnail URL"
         />
-        <mat-error *ngIf="form.get('thumbnail').invalid"
+        <mat-error
+          *ngIf="form.get('thumbnail').invalid || form.hasError('whitespace')"
           >Please enter a valid thumbnail URL.</mat-error
         >
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <textarea
+          matInput
+          type="text"
+          formControlName="firstParagraph"
+          placeholder="First paragraph for details"
+        >
+        </textarea>
+        <mat-error
+          *ngIf="
+            form.get('firstParagraph').invalid || form.hasError('whitespace')
+          "
+          >Please enter a valid paragraph.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <textarea
+          matInput
+          type="text"
+          formControlName="secondParagraph"
+          placeholder="Second paragraph for details"
+        >
+        </textarea>
+        <mat-error
+          *ngIf="
+            form.get('secondParagraph').invalid || form.hasError('whitespace')
+          "
+          >Please enter a valid paragraph.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <textarea
+          matInput
+          type="text"
+          formControlName="thirdParagraph"
+          placeholder="Third paragraph for details"
+        >
+        </textarea>
+        <mat-error
+          *ngIf="
+            form.get('thirdParagraph').invalid || form.hasError('whitespace')
+          "
+          >Please enter a valid paragraph.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <textarea
+          matInput
+          type="text"
+          formControlName="imageURLs"
+          placeholder="Enter space separated urls"
+        >
+        </textarea>
+        <mat-error
+          *ngIf="form.get('imageURLs').invalid || form.hasError('whitespace')"
+          >Please enter valid space-separated URLs.
+        </mat-error>
       </mat-form-field>
       <br />
       <mat-checkbox

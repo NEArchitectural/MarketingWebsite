@@ -8,6 +8,10 @@ export interface Location {
   cheapEntry: boolean;
   freeEntry: boolean;
   thumbnail: string;
+  firstParagraph: string;
+  secondParagraph: string;
+  thirdParagraph: string;
+  imageURLs: string [];
   latitude: number;
   longitude: number;
 }

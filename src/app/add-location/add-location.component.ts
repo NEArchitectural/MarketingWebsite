@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Observable, Subscription } from "rxjs";
 import { Location } from "../models/location";
 import "firebase/firestore";
 
@@ -25,9 +24,12 @@ export class AddLocationComponent implements OnInit {
   currentThumbnail: string;
   currentLatitude: number;
   currentLongitude: number;
+  currentFirstParagraph: string;
+  currentSecondParagraph: string;
+  currentThirdParagraph: string;
+  currentImageURLs: string[];
 
   constructor(private db: AngularFirestore) {
-    // TODO: Get all form data and create new location
     this.dbRef = db;
   }
 
@@ -42,6 +44,10 @@ export class AddLocationComponent implements OnInit {
     this.currentThumbnail = this.form.value.thumbnail;
     this.currentLatitude = this.form.value.latitude;
     this.currentLongitude = this.form.value.longitude;
+    this.currentFirstParagraph = this.form.value.firstParagraph;
+    this.currentSecondParagraph = this.form.value.secondParagraph;
+    this.currentThirdParagraph = this.form.value.thirdParagraph;
+    this.currentImageURLs = this.form.value.imageURLs.split(/\s/);
 
     this.model = {
       name: this.currentTitle,
@@ -53,6 +59,10 @@ export class AddLocationComponent implements OnInit {
       cheapEntry: this.currentCheap,
       freeEntry: this.currentFree,
       thumbnail: this.currentThumbnail,
+      firstParagraph: this.currentFirstParagraph,
+      secondParagraph: this.currentSecondParagraph,
+      thirdParagraph: this.currentThirdParagraph,
+      imageURLs: this.currentImageURLs,
       latitude: this.currentLatitude,
       longitude: this.currentLongitude
     };
@@ -72,18 +82,72 @@ export class AddLocationComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl(null, {
-        validators: [Validators.required, Validators.minLength(3)]
+        validators: [
+          Validators.required,
+          Validators.minLength(3),
+          this.noWhitespaceValidator
+        ]
       }),
-      summary: new FormControl(null, { validators: [Validators.required] }),
+      summary: new FormControl(null, {
+        validators: [
+          Validators.required,
+          Validators.minLength(20),
+          this.noWhitespaceValidator
+        ]
+      }),
       type: new FormControl(null, {
-        validators: [Validators.required, Validators.minLength(3)]
+        validators: [
+          Validators.required,
+          Validators.minLength(3),
+          this.noWhitespaceValidator
+        ]
       }),
       created: new FormControl(new Date(), {
         validators: [Validators.required]
       }),
-      thumbnail: new FormControl(null, { validators: [Validators.required] }),
-      latitude: new FormControl(null, { validators: [Validators.required] }),
-      longitude: new FormControl(null, { validators: [Validators.required] })
+      thumbnail: new FormControl(null, {
+        validators: [Validators.required, this.noWhitespaceValidator]
+      }),
+      firstParagraph: new FormControl(null, {
+        validators: [
+          Validators.required,
+          Validators.minLength(20),
+          this.noWhitespaceValidator
+        ]
+      }),
+      secondParagraph: new FormControl(null, {
+        validators: [
+          Validators.required,
+          Validators.minLength(20),
+          this.noWhitespaceValidator
+        ]
+      }),
+      thirdParagraph: new FormControl(null, {
+        validators: [
+          Validators.required,
+          Validators.minLength(20),
+          this.noWhitespaceValidator
+        ]
+      }),
+      imageURLs: new FormControl(null, {
+        validators: [
+          Validators.required,
+          Validators.minLength(3),
+          this.noWhitespaceValidator
+        ]
+      }),
+      latitude: new FormControl(null, {
+        validators: [Validators.required, this.noWhitespaceValidator]
+      }),
+      longitude: new FormControl(null, {
+        validators: [Validators.required, this.noWhitespaceValidator]
+      })
     });
+  }
+
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || "").trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { whitespace: true };
   }
 }
