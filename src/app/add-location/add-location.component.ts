@@ -64,7 +64,8 @@ export class AddLocationComponent implements OnInit {
       thirdParagraph: this.currentThirdParagraph,
       imageURLs: this.currentImageURLs,
       latitude: this.currentLatitude,
-      longitude: this.currentLongitude
+      longitude: this.currentLongitude,
+      likes: 0
     };
 
     const param = JSON.parse(JSON.stringify(this.model));

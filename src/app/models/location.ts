@@ -14,4 +14,5 @@ export interface Location {
   imageURLs: string [];
   latitude: number;
   longitude: number;
+  likes: number;
 }
