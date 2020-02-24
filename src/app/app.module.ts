@@ -12,10 +12,10 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatCheckboxModule } from "@angular/material/checkbox";
-import { MatCardModule} from '@angular/material/card';
+import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDatepickerModule } from "@angular/material/datepicker";
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatNativeDateModule } from "@angular/material/core";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAnalyticsModule } from "@angular/fire/analytics";
@@ -26,8 +26,14 @@ import { HeaderComponent } from "./header/header.component";
 import { ParallaxComponent } from "./parallax/parallax.component";
 import { ContentComponent } from "./content/content.component";
 import { AddLocationComponent } from "./add-location/add-location.component";
+import { FaqComponent } from "./faq/faq.component";
+import { InstallationComponent } from "./installation/installation.component";
+import { DocumentationComponent } from './documentation/documentation.component';
 
 const appRoutes: Routes = [
+  { path: "faq", component: FaqComponent },
+  { path: "documentation", component: DocumentationComponent},
+  { path: "installation", component: InstallationComponent },
   { path: "addLocationForm", component: AddLocationComponent },
   { path: "", component: ContentComponent, pathMatch: "full" }
 ];
@@ -38,7 +44,10 @@ const appRoutes: Routes = [
     HeaderComponent,
     ParallaxComponent,
     ContentComponent,
-    AddLocationComponent
+    AddLocationComponent,
+    FaqComponent,
+    InstallationComponent,
+    DocumentationComponent
   ],
   imports: [
     RouterModule.forRoot(
