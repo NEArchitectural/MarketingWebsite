@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "MarketingSite"
+  "defaultProject": "MarketingSite",
+  "cli": {
+    "analytics": "6d1de3db-9723-4858-80f1-fa976be908e8"
+  }
 }

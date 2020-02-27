@@ -70,11 +70,9 @@
         <input
           matInput
           formControlName="created"
-          placeholder="Location Date of creation"
-          [matDatepicker]="picker"
+          placeholder="Location Year of creation"
+          type="number"
         />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker matDatepicker #picker disabled="false"></mat-datepicker>
         <mat-error
           *ngIf="form.get('created').invalid || form.hasError('whitespace')"
           >Please enter a valid creation date.</mat-error
@@ -98,47 +96,13 @@
         <textarea
           matInput
           type="text"
-          formControlName="firstParagraph"
-          placeholder="First paragraph for details"
+          formControlName="paragraphs"
+          placeholder="Newline separated paragraphs"
         >
         </textarea>
         <mat-error
-          *ngIf="
-            form.get('firstParagraph').invalid || form.hasError('whitespace')
-          "
-          >Please enter a valid paragraph.
-        </mat-error>
-      </mat-form-field>
-      <br />
-      <mat-form-field>
-        <textarea
-          matInput
-          type="text"
-          formControlName="secondParagraph"
-          placeholder="Second paragraph for details"
-        >
-        </textarea>
-        <mat-error
-          *ngIf="
-            form.get('secondParagraph').invalid || form.hasError('whitespace')
-          "
-          >Please enter a valid paragraph.
-        </mat-error>
-      </mat-form-field>
-      <br />
-      <mat-form-field>
-        <textarea
-          matInput
-          type="text"
-          formControlName="thirdParagraph"
-          placeholder="Third paragraph for details"
-        >
-        </textarea>
-        <mat-error
-          *ngIf="
-            form.get('thirdParagraph').invalid || form.hasError('whitespace')
-          "
-          >Please enter a valid paragraph.
+          *ngIf="form.get('paragraphs').invalid || form.hasError('whitespace')"
+          >Please enter valid, newline separated paragraphs.
         </mat-error>
       </mat-form-field>
       <br />
@@ -186,6 +150,14 @@
         [ngModelOptions]="{ standalone: true }"
       >
         Child Friendly
+      </mat-checkbox>
+      <br />
+      <mat-checkbox
+        matCheckbox
+        [(ngModel)]="currentBookInAdvance"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        Book in advance
       </mat-checkbox>
       <br />
 
