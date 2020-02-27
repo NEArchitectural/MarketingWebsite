@@ -16,6 +16,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatExpansionModule } from "@angular/material/expansion";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAnalyticsModule } from "@angular/fire/analytics";
@@ -28,11 +29,11 @@ import { ContentComponent } from "./content/content.component";
 import { AddLocationComponent } from "./add-location/add-location.component";
 import { FaqComponent } from "./faq/faq.component";
 import { InstallationComponent } from "./installation/installation.component";
-import { DocumentationComponent } from './documentation/documentation.component';
+import { DocumentationComponent } from "./documentation/documentation.component";
 
 const appRoutes: Routes = [
   { path: "faq", component: FaqComponent },
-  { path: "documentation", component: DocumentationComponent},
+  { path: "documentation", component: DocumentationComponent },
   { path: "installation", component: InstallationComponent },
   { path: "addLocationForm", component: AddLocationComponent },
   { path: "", component: ContentComponent, pathMatch: "full" }
@@ -61,6 +62,7 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatSelectModule,
     MatDatepickerModule,
+    MatExpansionModule,
     FormsModule,
     MatNativeDateModule,
     MatCardModule,
