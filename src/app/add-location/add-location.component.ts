@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Location } from "../models/location";
+import { Report } from "../models/report";
 import "firebase/firestore";
 
 @Component({
@@ -13,27 +14,28 @@ export class AddLocationComponent implements OnInit {
   form: FormGroup;
   dbRef: AngularFirestore;
   model: Location;
+  report: Report;
   currentTitle: string;
   currentType: string;
   currentSummary: string;
-  currentCreated: Date;
+  currentCreated: number;
   currentWheelChair = false;
   currentChild = false;
   currentCheap = false;
   currentFree = false;
+  currentBookInAdvance = false;
   currentThumbnail: string;
   currentLatitude: number;
   currentLongitude: number;
-  currentFirstParagraph: string;
-  currentSecondParagraph: string;
-  currentThirdParagraph: string;
+  currentParagraphs: string[];
   currentImageURLs: string[];
+  currentReportID: string;
 
   constructor(private db: AngularFirestore) {
     this.dbRef = db;
   }
 
-  onSaveLocation() {
+  async onSaveLocation() {
     if (this.form.invalid) {
       return;
     }
@@ -44,40 +46,54 @@ export class AddLocationComponent implements OnInit {
     this.currentThumbnail = this.form.value.thumbnail;
     this.currentLatitude = this.form.value.latitude;
     this.currentLongitude = this.form.value.longitude;
-    this.currentFirstParagraph = this.form.value.firstParagraph;
-    this.currentSecondParagraph = this.form.value.secondParagraph;
-    this.currentThirdParagraph = this.form.value.thirdParagraph;
+    this.currentParagraphs = this.form.value.paragraphs.split(/\n/);
     this.currentImageURLs = this.form.value.imageURLs.split(/\s/);
+
+    this.report = {
+      paragraphs: this.currentParagraphs,
+      slideshowURLs: this.currentImageURLs
+    };
+
+    const reportJSON = JSON.parse(JSON.stringify(this.report));
+    
+    const docRef = await this.dbRef
+      .collection("reports")
+      .add(reportJSON);
+
+    this.currentReportID = docRef.id;
 
     this.model = {
       name: this.currentTitle,
       placeType: this.currentType,
       summary: this.currentSummary,
-      createdAt: this.currentCreated,
+      yearOpened: this.currentCreated,
       wheelChairAccessible: this.currentWheelChair,
       childFriendly: this.currentChild,
       cheapEntry: this.currentCheap,
       freeEntry: this.currentFree,
+      bookInAdvance: this.currentBookInAdvance,
       thumbnail: this.currentThumbnail,
-      firstParagraph: this.currentFirstParagraph,
-      secondParagraph: this.currentSecondParagraph,
-      thirdParagraph: this.currentThirdParagraph,
-      imageURLs: this.currentImageURLs,
       latitude: this.currentLatitude,
       longitude: this.currentLongitude,
-      likes: 0
+      likes: 0,
+      reportID: this.currentReportID
     };
 
-    const param = JSON.parse(JSON.stringify(this.model));
-    this.dbRef
+    const locationJSON = JSON.parse(JSON.stringify(this.model));
+
+    await this.dbRef
       .collection("locations")
-      .add(param)
-      .then(_ => alert("Yay, you just added " + this.currentTitle));
+      .add(locationJSON);
+
+    alert(`Yay you added ${this.currentTitle} with report ID: ${this.currentReportID} !`);
+
+
     this.form.reset();
     this.currentWheelChair = false;
     this.currentChild = false;
     this.currentCheap = false;
     this.currentFree = false;
+    this.currentBookInAdvance = false;
   }
 
   ngOnInit(): void {
@@ -103,27 +119,13 @@ export class AddLocationComponent implements OnInit {
           this.noWhitespaceValidator
         ]
       }),
-      created: new FormControl(new Date(), {
+      created: new FormControl(null, {
         validators: [Validators.required]
       }),
       thumbnail: new FormControl(null, {
         validators: [Validators.required, this.noWhitespaceValidator]
       }),
-      firstParagraph: new FormControl(null, {
-        validators: [
-          Validators.required,
-          Validators.minLength(20),
-          this.noWhitespaceValidator
-        ]
-      }),
-      secondParagraph: new FormControl(null, {
-        validators: [
-          Validators.required,
-          Validators.minLength(20),
-          this.noWhitespaceValidator
-        ]
-      }),
-      thirdParagraph: new FormControl(null, {
+      paragraphs: new FormControl(null, {
         validators: [
           Validators.required,
           Validators.minLength(20),
