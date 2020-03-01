@@ -3,6 +3,8 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import "firebase/firestore";
 
+AOS.init();
+
 @Component({
   selector: "app-content",
   templateUrl: "./content.component.html",
