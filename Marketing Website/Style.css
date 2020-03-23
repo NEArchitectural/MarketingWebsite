@@ -1,0 +1,194 @@
+html {
+	background-color: #C0C0C0;
+}
+	
+body {
+	background-color: #eefbfb;
+	max-width: 80%;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 32px;
+	padding-top: 5px;
+}
+p {
+	font-size: 16px;
+}
+
+/*	Styles the hyperlinks into the navigation bar */
+.navBar {	
+	background-color: #004C87;
+}
+.navBar p {
+	color: #FFFFFF;
+	width: 15%;
+	font-size: 20px;
+	text-align: center;
+	float: left;
+	}
+/*	Sets how a ul tag should look, making it visible to the user and have a dark blue background */
+.navBar ul {
+	list-style-type: none;
+	overflow: hidden;
+	background-color: #004C87;
+	}
+/*	Sets that the list should float to the left */
+.navBar li {
+	float: left;
+	}
+/*	Sets how the links in the list should appear, makes the font white and central in each box, assigns a 
+	text-decoration so the links aren't underlined */
+.navBar li a {
+	display: inline-block;
+	color: #FFFFFF;
+	font-size: 16px;
+	text-align: center;
+	padding: 20px;
+	text-decoration: none;
+	}
+/*	Changes the colour of whichever link is currently hovered over */
+.navBar li a:hover {
+	background-color: #097BAE;
+	}
+/*	Moves the items on the navigation bar from the left to the right side of the page, keeps the order of the 
+	nav bar */
+#list {
+	float: right;
+	}
+
+.map {
+	position: relative;
+	height: 91vh;
+	width: 100%;
+}
+.search {
+	position: relative;
+	height: 91vh;
+}
+.locationEnlarger {
+	position: relative;
+	height: 91vh;
+	width: 100%;
+}
+.settings {
+	position: relative;
+	height: 91vh;
+}
+
+.content {
+	padding: 1%;
+	overflow-x: hidden;
+}
+	.content h1 {
+		font-weight: bold;
+		text-decoration: underline;
+		font-size: 36px;
+		width: 100%;
+		padding-top: 2%;
+	}
+	.content h2 {
+		float: left;
+		width: 30%;
+	}	
+	.content p {
+		vertical-align: middle;
+		width: 45%;
+	}
+	.content span {
+		width: 100%;
+		background: #004C87;
+		display: inline-block;
+		height: 8px;
+		margin-top: 25px;
+		margin-bottom: 10px;
+	}
+
+.content1  {
+	padding-left: 1%;
+	text-align: center;
+	float: right;
+	width: 50%;
+	height: 91vh;
+}
+	.content1 p {
+		width: 80%;
+		padding-left:10%;
+	}
+	.content1 h2 {
+		font-size: 32px;
+		width: 100%;
+		padding-top: 2%;
+	}
+	.content1 span {
+		min-width: 70%;
+		background: #004C87;
+		display: inline-block;
+		height: 8px;
+		margin-top: 25px;
+		margin-bottom: 10px;
+	}
+
+.content2  {
+  padding-left: 1%;
+  text-align: center;
+  float: left;
+  width: 50%;
+}
+	.content2 p {
+		padding-left: 10%;
+		width: 80%;
+	}
+	.content2 h2 {
+		font-size: 32px;
+		width: 100%;
+		padding-top: 2%;
+	}
+	.content2 span {
+		min-width: 70%;
+		background: #004C87;
+		display: inline-block;
+		height: 8px;
+		margin-top: 25px;
+		margin-bottom: 10px;
+	}
+
+
+.img {
+	height: auto;
+	max-width: 45%;
+}
+
+.images {
+	height: 0vh;
+	width: 45%;
+	transform: scale(0.4, 0.4);
+	float: left;
+}
+
+.image1 {
+	height: 0vh;
+	width: 45%;
+	transform: scale(0.4, 0.4);
+	float: left;
+}
+.image2 {
+	height: 0vh;
+	width: 45%;
+	transform: scale(0.4, 0.4);
+	float: left;
+}
+.multipleImage {
+	position: relative;
+	height: 100%;
+	width: 45%;
+	float: right;
+}
+.multipleImage img {
+	width: 45%;
+	float: left;
+	padding: 1%;
+	top: 50%;
+  -ms-transform: translateY(20%);
+  transform: translateY(20%);
+}
