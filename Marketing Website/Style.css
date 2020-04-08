@@ -4,7 +4,7 @@ html {
 	
 body {
 	background-color: #eefbfb;
-	max-width: 80%;
+	width: 80%;
 	margin: 0 auto;
 }
 
@@ -13,7 +13,10 @@ h1 {
 	padding-top: 5px;
 }
 p {
-	font-size: 16px;
+	font-size: 20px;
+}
+ul {
+	font-size: 20px;
 }
 
 /*	Styles the hyperlinks into the navigation bar */
