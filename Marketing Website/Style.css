@@ -1,7 +1,7 @@
 html {
 	background-color: #C0C0C0;
 }
-	
+
 body {
 	background-color: #eefbfb;
 	width: 80%;
@@ -11,6 +11,7 @@ body {
 h1 {
 	font-size: 32px;
 	padding-top: 5px;
+	text-align: center;
 }
 p {
 	font-size: 20px;
@@ -20,7 +21,7 @@ ul {
 }
 
 /*	Styles the hyperlinks into the navigation bar */
-.navBar {	
+.navBar {
 	background-color: #004C87;
 }
 .navBar p {
@@ -40,7 +41,7 @@ ul {
 .navBar li {
 	float: left;
 	}
-/*	Sets how the links in the list should appear, makes the font white and central in each box, assigns a 
+/*	Sets how the links in the list should appear, makes the font white and central in each box, assigns a
 	text-decoration so the links aren't underlined */
 .navBar li a {
 	display: inline-block;
@@ -54,7 +55,7 @@ ul {
 .navBar li a:hover {
 	background-color: #097BAE;
 	}
-/*	Moves the items on the navigation bar from the left to the right side of the page, keeps the order of the 
+/*	Moves the items on the navigation bar from the left to the right side of the page, keeps the order of the
 	nav bar */
 #list {
 	float: right;
@@ -93,7 +94,7 @@ ul {
 	.content h2 {
 		float: left;
 		width: 30%;
-	}	
+	}
 	.content p {
 		vertical-align: middle;
 		width: 45%;
@@ -194,4 +195,27 @@ ul {
 	top: 50%;
   -ms-transform: translateY(20%);
   transform: translateY(20%);
+}
+.collapsible {
+  background-color: #004C87;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #097BAE;
+}
+
+.collcontent {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
 }

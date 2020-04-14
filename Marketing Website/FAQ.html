@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -24,6 +24,108 @@
 			</ul>
 		</div>
 	</div>
+
+
+<h1>
+Frequently Asked Questions:
+</h1>
+<br>
+  	<!-- Collapsibles for FAQ -->
+  <button class="collapsible">Q: What is NE Architectural?</button>
+  <div class="collcontent">
+    <p>A: NE Architectural is an app designed to help you find places of architectural significance in the North East of England!</p>
+  </div>
+
+
+  <button class="collapsible">Q: How can I use NE Architectural?</button>
+  <div class="collcontent">
+    <p>A: All you need is a mobile phone with Android 4.1 or later and Google Maps installed!</p>
+  </div>
+
+
+  <button class="collapsible">Q: Is NE Architectural free?</button>
+  <div class="collcontent">
+    <p>A: Yes it is!</p>
+  </div>
+
+
+  <button class="collapsible">Q: Can I use NE Architectural anywhere?</button>
+  <div class="collcontent">
+    <p>A: It will work anywhere, but only provides information about places in the North East of England.</p>
+  </div>
+
+
+  <button class="collapsible">Q: Do you store my location history?</button>
+  <div class="collcontent">
+    <p>A: We do not store any information about your location, it is all handled by Google.</p>
+  </div>
+
+
+  <button class="collapsible">Q: What is the Timeline?</button>
+  <div class="collcontent">
+    <p>A: The timeline is a feature which allows you to see locations in a different way than on the map, ordering them by the date they were created!</p>
+  </div>
+
+
+  <button class="collapsible">Q: Can I review locations I have visited?</button>
+  <div class="collcontent">
+    <p>A: If you liked a location you visited, you can press the heart on the search page to like it!</p>
+  </div>
+
+
+  <button class="collapsible">Q: Do I need an internet connection to use NE Architectural?</button>
+  <div class="collcontent">
+    <p>A: You will need a Wi-Fi or mobile data connection for your location to update accurately, but all other features will work without a connection!</p>
+  </div>
+
+  <br>
+<h1>
+  Troubleshooting
+</h1>
+<br>
+<!-- Collapsibles for Troubleshooting -->
+
+  <button class="collapsible">What do I do if my map does not show my location?</button>
+  <div class="collcontent">
+    <p>If this occurs, ensure that you have allowed the app to use your location in your device settings.</p>
+  </div>
+
+
+  <button class="collapsible">Nothing happens when I click "Take me there".</button>
+  <div class="collcontent">
+    <p>Please ensure that you have Google Maps installed on your device (it should be installed by default).</p>
+  </div>
+
+
+  <button class="collapsible">The text is too small on the screen.</button>
+  <div class="collcontent">
+    <p>You can change the font size for the whole app in the settings page.</p>
+  </div>
+
+
+  <button class="collapsible">The app crashes sometimes.</button>
+  <div class="collcontent">
+    <p>Please email us at NEArchitecturalTeam6@gmail.com with details of what you were doing before the crash.</p>
+  </div>
+
+  <!-- javascript for collabsibles - taken from example at https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate -->
+  <script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  }
+  </script>
+
 
 </body>
 </html>
